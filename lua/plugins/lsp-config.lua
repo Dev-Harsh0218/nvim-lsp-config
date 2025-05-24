@@ -57,17 +57,36 @@ return {
                 }
             })
 
-            -- Pyright setup for Python
-            lspconfig.pyright.setup({
+            -- Pylsp setup for Python
+            lspconfig.pylsp.setup({
                 settings = {
-                    python = {
-                        analysis = {
-                            typeCheckingMode = "basic",  -- Change to "strict" for stricter checks
-                            autoSearchPaths = true,
-                            useLibraryCodeForTypes = true,
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                enabled = true,
+                                maxLineLength = 100,
+                            },
+                            pyflakes = { enabled = true },
+                            pylint = { enabled = false },
+                            jedi_completion = { enabled = true },
                         }
                     }
                 }
+            })
+
+            -- gopls (Go Please) setup
+            lspconfig.gopls.setup({
+                settings = {
+                    gopls = {
+                        usePlaceholders = true,
+                        completeUnimported = true,
+                        staticcheck = true,
+                        analyses = {
+                            unusedparams = true,
+                            unreachable = true,
+                        },
+                    },
+                },
             })
 
             --kotlin_language_server setup 
@@ -133,6 +152,18 @@ return {
             vim.keymap.set("n", "<leader>cR", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
             -- Set a vim motion for <Space> + c + <Shift>D to go to where the code/object was declared in the project (class file)
             vim.keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "[C]ode Goto [D]eclaration" })
+            ------------------------------------------------------------------------------------------------------
+            -- Show diagnostics in a floating window
+            vim.keymap.set("n", "<leader>cds", vim.diagnostic.open_float, { desc = "[C]ode [D]iagnostic [S]how" })
+
+            -- Go to next diagnostic
+            vim.keymap.set("n", "<leader>cdn", vim.diagnostic.goto_next, { desc = "[C]ode [D]iagnostic [N]ext" })
+
+            -- Go to previous diagnostic
+            vim.keymap.set("n", "<leader>cdp", vim.diagnostic.goto_prev, { desc = "[C]ode [D]iagnostic [P]revious" })
+
+            -- Set location list with all diagnostics
+            vim.keymap.set("n", "<leader>cdl", vim.diagnostic.setloclist, { desc = "[C]ode [D]iagnostic [L]ist" })
         end
     }
 }
