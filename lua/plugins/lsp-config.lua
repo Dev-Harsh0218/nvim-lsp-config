@@ -92,7 +92,7 @@ return {
                 },
             })
 
-            -- Kotlin language server setup
+            --kotlin_language_server setup 
             lspconfig.kotlin_language_server.setup({
                 cmd = { "kotlin-language-server" },
                 root_dir = function(fname)
@@ -174,18 +174,6 @@ return {
 
             -- Set location list with all diagnostics
             vim.keymap.set("n", "<leader>cdl", vim.diagnostic.setloclist, { desc = "[C]ode [D]iagnostic [L]ist" })
-        end
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.gofumpt,
-                    null_ls.builtins.diagnostics.golangci_lint,
-                }
-            })
         end
     },
     {

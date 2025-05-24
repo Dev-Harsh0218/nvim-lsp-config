@@ -41,3 +41,6 @@ require('config.registers')
 -- Tell lazy that all plugin specs are found in the plugins directory
 -- Pass it the options we specified above
 require("lazy").setup("plugins", opts)
+
+
+-- here is the push for merge here
