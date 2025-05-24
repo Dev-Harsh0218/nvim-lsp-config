@@ -28,3 +28,6 @@ vim.keymap.set("n", "<leader>wh", ":split<cr>", { desc = "[W]indow Split [H]oriz
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left in visual mode" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right in visual mode" })
+
+-- Set Ctrl+c to clipboard copy
+vim.keymap.set("v","<C-c>",'"+y',{ desc = "Ctrl+c to copy to clipboard"})

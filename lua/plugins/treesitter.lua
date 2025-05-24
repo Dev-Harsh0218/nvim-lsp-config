@@ -17,9 +17,9 @@ return {
             -- make sure highlighting it anabled
             highlight = {enable = true},
             -- enable tsx auto closing tag creation
-            autotag = {
-                enable = true
-            }
+            --autotag = {
+            --    enable = true
+            --}
         })
     end
 }
