@@ -14,6 +14,18 @@ return {
         end
     },
     {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.formatting.gofumpt,
+                    null_ls.builtins.diagnostics.golangci_lint,
+                }
+            })
+        end
+    },
+    {
         "jay-babu/mason-nvim-dap.nvim",
         config = function()
             require("mason-nvim-dap").setup({
