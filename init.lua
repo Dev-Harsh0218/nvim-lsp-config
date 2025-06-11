@@ -34,8 +34,13 @@ local opts = {
 require('config.options')
 -- Load the keymaps from the configs/keymaps.lua file
 require('config.keymaps')
+-- Load the Registers.lua
+require('config.registers')
 
 -- Setup lazy, this should always be last
 -- Tell lazy that all plugin specs are found in the plugins directory
 -- Pass it the options we specified above
 require("lazy").setup("plugins", opts)
+
+
+-- here is the push for merge here
